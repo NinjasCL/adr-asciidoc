@@ -1,0 +1,38 @@
+#!/bin/bash
+# ADR TaskFile (./adr)
+# See https://github.com/adriancooney/Taskfile
+# A Taskfile is a bash (or zsh etc.) script that follows
+# a specific format. It's called Taskfile, sits in the root of your project
+# (alongside your other project files) and contains the
+# tasks to build your project.
+# Ensure `chmod +x ./adr` for granting execution permissions.
+# Usage ./adr <command>
+# License: BSD 2-Clause
+# By: CLSource <camilo@ninjas.cl>
+
+BIN="node ./bin"
+
+function compile {
+  ${BIN}/adr-index.js
+  cd docs && asciidoctor README.adoc && mv README.html index.html
+}
+
+function new {
+  ${BIN}/adr-new.js $@
+  compile
+}
+
+function tasks {
+    echo "$0 <task> <args>"
+    echo "Tasks:"
+    compgen -A function | cat -n
+}
+
+function default {
+    # Default task to execute
+    tasks
+}
+
+
+TIMEFORMAT="Task completed in %3lR"
+time ${@:-default}

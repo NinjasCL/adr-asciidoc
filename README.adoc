@@ -1,0 +1,28 @@
+# Architectural Decision Log Tool
+
+This log lists the architectural decisions for this project.
+
+---
+
+For new ADRs, please use *docs/templates/adr.template.adoc* as basis. You can easily create a new ADR with *adr* command based on the template:
+
+```sh
+./adr new My New ADR
+```
+
+For generating a new _README.adoc_ and _index.html_ use the _compile_ task:
+
+```sh
+./adr compile
+```
+
+Requires https://nodejs.org/en/[NodeJS] and https://asciidoctor.org/[ASCIIDoc] installed.
+
+---
+
+More information on MADR is available at <https://adr.github.io/madr/>.
+General information about architectural decision records is available at <https://adr.github.io/>.
+
+++++
+Made with <i class="fa fa-heart">&#9829;</i> by <a href="https://ninjas.cl" target="_blank">Ninjas.cl</a>.
+++++
